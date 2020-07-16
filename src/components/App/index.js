@@ -362,6 +362,22 @@ class App extends React.Component {
         this.fetchAccountAddress();
         const interval = this.updateTotalDividents();
         this.setState({interval});
+        
+        if (account[0] === 0){
+            Swal.fire({
+                title: '<strong>Wallet</strong>',
+                icon: 'info',
+                html:
+                  "Due to <b>TronWallet</b>'s recent problems, It's recommended to use " +
+                  '<b><a href="https://www.tronlink.org/">TronLink</a></b> or ' + 
+                  '<b><a href="https://download.tokenpocket.pro/index.html#/">TokenPocket</a></b>' +
+                  ' ',
+                showCloseButton: true,
+                showCancelButton: false,
+                focusConfirm: false,
+                confirmButtonText: 'OK'
+              })
+        }
     }
 
     async invest(investmentAmount, investmentPlan){    
